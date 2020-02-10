@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "noEmitOnError": true,
+        "moduleResolution": "node",
+        "module": "es6",
+        "target": "es2017",
+        "lib": ["dom", "es2017"],
+        "experimentalDecorators": true
+    }
+}
