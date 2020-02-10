@@ -1,3 +1,4 @@
 import './main.css';
 
-import './ui/my-link';
+import './ui/not-link';
+import './components/not-card';

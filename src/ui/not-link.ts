@@ -6,8 +6,8 @@ import {
     property,
 } from 'lit-element';
 
-@customElement('my-link')
-export class MyLink extends LitElement
+@customElement('not-link')
+export class NotLink extends LitElement
 {
     static get styles()
     {
