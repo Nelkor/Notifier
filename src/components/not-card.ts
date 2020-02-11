@@ -8,8 +8,7 @@ import {
     property,
 } from 'lit-element';
 
-// TODO исправить
-const regex = /\[link (.+?)](.+?)\[\/link]/g;
+import { cardById } from '../services/notifications-service';
 
 @customElement('not-card')
 export class NotCard extends LitElement
@@ -18,7 +17,7 @@ export class NotCard extends LitElement
     {
         return css`
             .card {
-                width: 200px;
+                width: 300px;
                 border: solid 1px;
                 padding: 20px;
                 border-radius: 4px;
@@ -26,14 +25,42 @@ export class NotCard extends LitElement
         `;
     }
 
-    @property({ type: String })
-    content = '';
+    private static renderPart(part: { type: any, content: any, href: any }): TemplateResult
+    {
+        switch (part.type) {
+        case 'plain':
+            return html`${part.content}`;
+        case 'link':
+            return html`
+                <not-link href="${part.href}">${part.content}</not-link>
+            `;
+        }
+
+        // TODO delete
+        return html``;
+    }
+
+    private static renderParagraph(paragraph: []): TemplateResult
+    {
+        return html`${paragraph.map(NotCard.renderPart)}`;
+    }
+
+    @property({ type: Number })
+    cardId = 1;
+
+    @property({
+        type: Object,
+        attribute: false,
+    })
+    card = cardById(this.cardId);
 
     protected render(): TemplateResult
     {
         return html`
             <div class="card">
-                <span>${this.content}</span>
+                <div class="paragraphs">
+                    ${this.card.paragraphs.map(NotCard.renderParagraph)}
+                </div>
             </div>
         `;
     }

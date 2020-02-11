@@ -1,5 +1,7 @@
 import {
     LitElement,
+    CSSResult,
+    TemplateResult,
     html,
     css,
     customElement,
@@ -9,7 +11,7 @@ import {
 @customElement('not-link')
 export class NotLink extends LitElement
 {
-    static get styles()
+    static get styles(): CSSResult
     {
         return css`
             a {
@@ -45,7 +47,7 @@ export class NotLink extends LitElement
     @property({ type: String })
     href = '#';
 
-    render()
+    render(): TemplateResult
     {
         return html`
             <a
