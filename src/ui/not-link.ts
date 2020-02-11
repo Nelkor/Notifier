@@ -54,7 +54,6 @@ export class NotLink extends LitElement
                 href="${this.href}"
                 target="_blank"
                 rel="noopener"
-            ><slot></a>
-        `;
+            ><slot></a>`;
     }
 }

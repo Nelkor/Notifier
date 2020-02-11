@@ -23,7 +23,7 @@ module.exports = {
         path: fullPath('dist'),
     },
     devServer: {
-        port: 8080
+        port: 8088
     },
     devtool: 'inline-source-map',
     plugins: [
