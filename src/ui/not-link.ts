@@ -15,6 +15,7 @@ export class NotLink extends LitElement
     {
         return css`
             a {
+                display: inline-block;
                 text-decoration: none;
                 position: relative;
                 color: #fc2c38;
@@ -49,11 +50,10 @@ export class NotLink extends LitElement
 
     render(): TemplateResult
     {
-        return html`
-            <a
-                href="${this.href}"
-                target="_blank"
-                rel="noopener"
-            ><slot></a>`;
+        return html`<a
+            href="${this.href}"
+            target="_blank"
+            rel="noopener"
+        ><slot></a>`;
     }
 }
